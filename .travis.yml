@@ -14,6 +14,8 @@ install:
   # Roswell & coveralls
   - curl -L https://raw.githubusercontent.com/snmsts/roswell/$ROSWELL_BRANCH/scripts/install-for-ci.sh | sh
   - git clone https://github.com/fukamachi/cl-coveralls ~/lisp/cl-coveralls
+  - git clone https://github.com/eudoxia0/path-parse ~/lisp/path-parse
+  - git clone https://github.com/eudoxia0/which ~/lisp/which
 
 cache:
   directories:
