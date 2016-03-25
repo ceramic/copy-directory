@@ -17,6 +17,7 @@
 
 (defun cl-copy (source destination)
   "Copy everything under source to destination. Pure CL function."
+  (ensure-directories-exist destination)
   (fad:walk-directory source
                       #'(lambda (pathname)
                           (unless (equal pathname source)
@@ -34,6 +35,8 @@
 
 (defun native-copy (cp-path source destination)
   "Copy everything from source to destination using native system tools."
+  (ensure-directories-exist
+   (uiop:pathname-parent-directory-pathname destination))
   (uiop:run-program (format nil "~S -r ~S ~S"
                             (namestring cp-path)
                             (namestring source)
@@ -48,7 +51,6 @@ use it. If not, uses pure CL code. Returns the destination."
   (assert (uiop:absolute-pathname-p destination))
   (assert (uiop:directory-pathname-p source))
   (assert (uiop:directory-pathname-p destination))
-  (ensure-directories-exist destination)
   (let ((cp (which:which "cp")))
     (if cp
         (native-copy cp source destination)
