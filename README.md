@@ -1,5 +1,9 @@
 # copy-directory
 
+[![Build Status](https://travis-ci.org/ceramic/copy-directory.svg?branch=master)](https://travis-ci.org/ceramic/copy-directory)
+[![Quicklisp](http://quickdocs.org/badge/copy-directory.svg)](http://quickdocs.org/<project name>/)
+
+
 Copy a directory, using the native `cp` utility if available.
 
 # Overview
