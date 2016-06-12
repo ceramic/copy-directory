@@ -52,6 +52,7 @@ use it. If not, uses pure CL code. Returns the destination."
   (assert (uiop:directory-pathname-p source))
   (assert (uiop:directory-pathname-p destination))
   (let ((cp (which:which "cp")))
-    (if cp
-        (native-copy cp source destination)
-        (cl-copy source destination))))
+    ;(if cp
+    ;    (native-copy cp source destination)
+    ;    (cl-copy source destination))))
+    (cl-copy source destination)))
